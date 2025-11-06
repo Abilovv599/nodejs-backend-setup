@@ -1,0 +1,7 @@
+{
+	"watch": ["src", ".env"],
+	"ext": "ts,env,json",
+	"delay": 100,
+	"signal": "SIGTERM",
+	"exec": "node --env-file=.env dist/app.js"
+}
