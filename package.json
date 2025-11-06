@@ -1,5 +1,9 @@
 {
 	"name": "nodejs-backend-setup",
+    "description": "A modern Node.js backend setup using TypeScript, esbuild, and Biome — featuring hot reload, type checking, linting, and automated formatting for rapid backend development.",
+    "author": "Jeyhun Abilov",
+    "keywords": ["nodejs", "typescript", "esbuild", "biome", "backend", "setup", "hot-reload", "linting", "formatting"],
+    "license": "ISC",
 	"version": "1.0.0",
 	"type": "module",
 	"main": "src/app.ts",
@@ -19,10 +23,6 @@
 		"validate": "concurrently --success=all --kill-others-on-fail -p \"[{name}]\" -n \"Types,Check\" -c \"cyan.bold,green.bold\" \"npm run typecheck\" \"npm run check\"",
 		"prepare": "husky"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"description": "",
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.3",
 		"@types/node": "^24.10.0",
