@@ -8,7 +8,7 @@
 	"type": "module",
 	"main": "src/app.ts",
 	"scripts": {
-		"dev": "concurrently -k -p \"[{name}]\" -n \"Types,ESBuild,Server\" -c \"cyan.bold,yellow.bold,green.bold\" --success=first \"npm:typecheck:watch\" \"npm:build:watch\" \"npm:dev:start\"",
+        "dev": "npm run build && concurrently -k -p \"[{name}]\" -n \"Types,ESBuild,Server\" -c \"cyan.bold,yellow.bold,green.bold\" --success=first \"npm:typecheck:watch\" \"npm:build:watch\" \"npm:dev:start\"",
 		"dev:start": "nodemon",
 		"start": "node dist/app.js",
 		"build": "tsx esbuild.config.ts",
