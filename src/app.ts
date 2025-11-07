@@ -1,5 +1,4 @@
 import { createServer } from "node:http";
-import "dotenv/config";
 
 const server = createServer((_req, res) => {
 	res.writeHead(200, { "Content-Type": "text/plain" });

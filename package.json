@@ -1,21 +1,30 @@
 {
 	"name": "nodejs-backend-setup",
-    "description": "A modern Node.js backend setup using TypeScript, esbuild, and Biome — featuring hot reload, type checking, linting, and automated formatting for rapid backend development.",
-    "author": "Jeyhun Abilov",
-    "keywords": ["nodejs", "typescript", "esbuild", "biome", "backend", "setup", "hot-reload", "linting", "formatting"],
-    "license": "ISC",
+	"description": "A modern Node.js backend setup using TypeScript, esbuild, and Biome — featuring hot reload, type checking, linting, and automated formatting for rapid backend development.",
+	"author": "Jeyhun Abilov",
+	"keywords": [
+		"nodejs",
+		"typescript",
+		"esbuild",
+		"biome",
+		"backend",
+		"setup",
+		"hot-reload",
+		"linting",
+		"formatting"
+	],
+	"license": "ISC",
 	"version": "1.0.0",
 	"type": "module",
 	"main": "src/app.ts",
 	"scripts": {
-        "dev": "npm run build && concurrently -k -p \"[{name}]\" -n \"Types,ESBuild,Server\" -c \"cyan.bold,yellow.bold,green.bold\" \"npm:typecheck:watch\" \"npm:build:watch\" \"npm:dev:start\"",
+		"dev": "npm run build && concurrently -k -p \"[{name}]\" -n \"Types,ESBuild,Server\" -c \"cyan.bold,yellow.bold,green.bold\" \"npm:typecheck:watch\" \"npm:build:watch\" \"npm:dev:start\"",
 		"dev:start": "nodemon",
-		"start": "node dist/app.js",
+		"start": "node --env-file=.env dist/app.js",
 		"build": "tsx esbuild.config.ts",
 		"build:watch": "tsx esbuild.config.ts -- --watch",
 		"typecheck": "tsc --noEmit",
 		"typecheck:watch": "tsc --watch --noEmit",
-
 		"format": "biome format --write",
 		"lint": "biome lint --write",
 		"check": "biome check",
@@ -33,9 +42,6 @@
 		"nodemon": "^3.1.10",
 		"tsx": "^4.20.6",
 		"typescript": "^5.9.3"
-	},
-	"dependencies": {
-		"dotenv": "^17.2.3"
 	},
 	"volta": {
 		"node": "22.21.1"
