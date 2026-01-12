@@ -1,52 +1,52 @@
 {
-	"name": "nodejs-backend-setup",
-	"description": "A modern Node.js backend setup using TypeScript, esbuild, and Biome — featuring hot reload, type checking, linting, and automated formatting for rapid backend development.",
-	"author": "Jeyhun Abilov",
-	"keywords": [
-		"nodejs",
-		"typescript",
-		"esbuild",
-		"biome",
-		"backend",
-		"setup",
-		"hot-reload",
-		"linting",
-		"formatting"
-	],
-	"license": "ISC",
-	"version": "1.0.0",
-	"type": "module",
-	"main": "src/app.ts",
-	"scripts": {
-		"build": "concurrently --success=all --kill-others-on-fail -p \"[{name}]\" -n \"Typecheck,Build\" -c \"cyan.bold,yellow.bold\" \"npm:typecheck\" \"npm:build:only\"",
-		"build:only": "tsx esbuild.config.ts",
-		"build:watch": "tsx esbuild.config.ts --watch",
+  "name": "nodejs-backend-setup",
+  "description": "A modern Node.js backend setup using TypeScript, esbuild, and Biome — featuring hot reload, type checking, linting, and automated formatting for rapid backend development.",
+  "author": "Jeyhun Abilov",
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "esbuild",
+    "biome",
+    "backend",
+    "setup",
+    "hot-reload",
+    "linting",
+    "formatting"
+  ],
+  "license": "ISC",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/app.ts",
+  "scripts": {
+    "build": "concurrently --success=all --kill-others-on-fail -p \"[{name}]\" -n \"Typecheck,Build\" -c \"cyan.bold,yellow.bold\" \"npm:typecheck\" \"npm:build:only\"",
+    "build:only": "tsx esbuild.config.ts",
+    "build:watch": "tsx esbuild.config.ts --watch",
 
-		"dev": "npm run build && concurrently -k -p \"[{name}]\" -n \"ESBuild,Server\" -c \"yellow.bold,green.bold\" \"npm:build:watch\" \"npm:start:dev\"",
-		"start:dev": "nodemon",
-		"start": "node --env-file=.env dist/app.js",
+    "dev": "npm run build && concurrently -k -p \"[{name}]\" -n \"ESBuild,Server\" -c \"yellow.bold,green.bold\" \"npm:build:watch\" \"npm:start:dev\"",
+    "start:dev": "nodemon",
+    "start": "node --env-file=.env dist/app.js",
 
-		"validate": "concurrently --success=all --kill-others-on-fail -p \"[{name}]\" -n \"Types,Check\" -c \"cyan.bold,green.bold\" \"npm:typecheck\" \"npm:check\"",
-		"typecheck": "tsc --noEmit",
-		"format": "biome format --write",
-		"lint": "biome lint --write",
-		"check": "biome check",
-		"fix": "biome check --fix",
+    "validate": "concurrently --success=all --kill-others-on-fail -p \"[{name}]\" -n \"Types,Check\" -c \"cyan.bold,green.bold\" \"npm:typecheck\" \"npm:check\"",
+    "typecheck": "tsc --noEmit",
+    "format": "biome format --write",
+    "lint": "biome lint --write",
+    "check": "biome check",
+    "fix": "biome check --fix",
 
-		"prepare": "husky"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^2.3.3",
-		"@types/node": "^24.10.0",
-		"concurrently": "^9.2.1",
-		"esbuild": "^0.25.12",
-		"husky": "^9.1.7",
-		"lint-staged": "^16.2.6",
-		"nodemon": "^3.1.10",
-		"tsx": "^4.20.6",
-		"typescript": "^5.9.3"
-	},
-	"volta": {
-		"node": "22.21.1"
-	}
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.3",
+    "@types/node": "^24.10.0",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.25.12",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "nodemon": "^3.1.10",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "volta": {
+    "node": "22.21.1"
+  }
 }
